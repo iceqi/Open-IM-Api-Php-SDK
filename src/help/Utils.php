@@ -24,12 +24,13 @@ class Utils
      * @param string $token
      * @return string
      * @throws GuzzleException
+     * @throws ValidateException
      */
     private static function request(string $uri, array $data, string $token): string
     {
         $client = new Client();
         $options = [
-            RequestOptions::JSON => array_merge($data, [
+            RequestOptions::JSON => array_merge(Validate::validateArray($data), [
                 'operationID' => self::buildOperationID(),
                 'platform' => Config::getPlatform(),
                 'secret' => Config::getSecret(),
@@ -55,6 +56,8 @@ class Utils
             return json_decode(self::request(Url::buildUrl($path), $data, $token), true);
         } catch (GuzzleException $e) {
             return ['errCode' => $e->getCode(), 'errMsg' => $errMsg];
+        } catch (ValidateException $e) {
+            return ['errCode' => 400, 'errMsg' => $e->getMessage()];
         }
     }
 }
