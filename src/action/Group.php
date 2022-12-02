@@ -296,7 +296,8 @@ class Group
      * @param string $ex
      * @return array
      */
-    public function setGroupMemberInfo(string $token, string $userID, string $groupID, int $roleLevel = 1, string $nickName = '', string $faceURL = '', string $ex = ''): array
+    public function setGroupMemberInfo(string $token, string $userID, string $groupID, int $roleLevel = 1, string $nickName = '',
+                                       string $faceURL = '', string $ex = ''): array
     {
         $data = [
             'groupID' => $groupID,
