@@ -12,7 +12,7 @@ class Utils
      * 生成操作id
      * @return string
      */
-    public static function buildOperationID(): string
+    private static function buildOperationID(): string
     {
         return str_replace('.', '', microtime(true));
     }
@@ -30,7 +30,7 @@ class Utils
         $client = new Client();
         $options = [
             RequestOptions::JSON => array_merge($data, [
-                'operationID' => Utils::buildOperationID(),
+                'operationID' => self::buildOperationID(),
                 'platform' => Config::getPlatform(),
                 'secret' => Config::getSecret(),
             ]),
@@ -52,7 +52,7 @@ class Utils
     public static function send(string $path, array $data, string $errMsg, string $token = ''): array
     {
         try {
-            return json_decode(Utils::request(Url::buildUrl($path), $data, $token), true);
+            return json_decode(self::request(Url::buildUrl($path), $data, $token), true);
         } catch (GuzzleException $e) {
             return ['errCode' => $e->getCode(), 'errMsg' => $errMsg];
         }
