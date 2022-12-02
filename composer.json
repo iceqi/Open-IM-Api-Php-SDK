@@ -1,0 +1,23 @@
+{
+  "name": "adcbguo/openim",
+  "description": "OpenIM Api PHP SDK",
+  "keywords": [
+    "openim"
+  ],
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "adcbguo",
+      "email": "adcbguo@qq.com"
+    }
+  ],
+  "require": {
+    "php": "^7 || ^8.0",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "OpenIM\\": "src/"
+    }
+  }
+}
