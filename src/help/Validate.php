@@ -28,8 +28,8 @@ class Validate
     /**
      * 验证数组
      * @param array $array
-     * @throws ValidateException
      * @return array
+     * @throws ValidateException
      */
     public static function validateArray(array $array): array
     {
@@ -39,7 +39,7 @@ class Validate
                     $rules = explode('|', $rules);
                     foreach ($rules as $rule) {
                         $rule = explode(':', $rule);
-                        self::{$rule[0]}($value, $rule[1]);
+                        self::{$rule[0]}($field, $value, $rule[1]);
                     }
                 }
             }
@@ -49,29 +49,31 @@ class Validate
 
     /**
      * 长度最大验证
-     * @param $value
-     * @param $len
+     * @param string $field
+     * @param int|string $value
+     * @param int $len
      * @return void
      * @throws ValidateException
      */
-    private static function max($value, $len)
+    private static function max(string $field, $value, int $len)
     {
         if (strlen($value) > $len) {
-            throw new ValidateException("长度不能超过{$len}位");
+            throw new ValidateException("参数{$field}长度不能超过{$len}位");
         }
     }
 
     /**
      * 类型in验证
-     * @param $value
-     * @param $in
+     * @param string $field
+     * @param int|string $value
+     * @param string $in
      * @return void
      * @throws ValidateException
      */
-    private static function in($value, $in)
+    private static function in(string $field, $value, string $in)
     {
-        if (in_array($value, explode(',', $in))) {
-            throw new ValidateException("类型必须为{$in},当前值{$value}");
+        if (!in_array($value, explode(',', $in))) {
+            throw new ValidateException("参数{$field}类型必须为{$in},当前值{$value}");
         }
     }
 }
