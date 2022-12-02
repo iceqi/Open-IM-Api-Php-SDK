@@ -101,6 +101,126 @@ class Url
     static $setFriendRemark = '/friend/set_friend_remark';
 
     /**
+     * 取消禁言群组
+     * @var string
+     */
+    static $cancelMuteGroup = '/group/cancel_mute_group';
+
+    /**
+     * 取消禁言群成员
+     * @var string
+     */
+    static $cancelMuteGroupMember = '/group/cancel_mute_group_member';
+
+    /**
+     * 创建群组
+     * @var string
+     */
+    static $createGroup = '/group/create_group';
+
+    /**
+     * 解散群组
+     * @var string
+     */
+    static $dismissGroup = '/group/dismiss_group';
+
+    /**
+     * 获取全部群成员列表
+     * @var string
+     */
+    static $getGroupAllMemberList = '/group/get_group_all_member_list';
+
+    /**
+     * 获取群成员信息
+     * @var string
+     */
+    static $getGroupMembersInfo = '/group/get_group_members_info';
+
+    /**
+     * 通过群ID列表获取群信息
+     * @var string
+     */
+    static $getGroupsInfo = '/group/get_groups_info';
+
+    /**
+     * 获取用户加入群列表
+     * @var string
+     */
+    static $getJoinedGroupList = '/group/get_joined_group_list';
+
+    /**
+     * 获取用户收到的加群信息列表
+     * @var string
+     */
+    static $getRecvGroupApplicationList = '/group/get_recv_group_applicationList';
+
+    /**
+     * 获取用户加群申请列表
+     * @var string
+     */
+    static $getUserReqGroupApplicationList = '/group/get_user_req_group_applicationList';
+
+    /**
+     * 处理加群消息
+     * @var string
+     */
+    static $groupApplicationResponse = '/group/group_application_response';
+
+    /**
+     * 将用户拉入群组
+     * @var string
+     */
+    static $inviteUserToGroup = '/group/invite_user_to_group';
+
+    /**
+     * 加入群聊
+     * @var string
+     */
+    static $joinGroup = '/group/join_group';
+
+    /**
+     * 把用户踢出群组
+     * @var string
+     */
+    static $kickGroup = '/group/kick_group';
+
+    /**
+     * 禁言群组
+     * @var string
+     */
+    static $muteGroup = '/group/mute_group';
+
+    /**
+     * 禁言群成员
+     * @var string
+     */
+    static $muteGroupMember = '/group/mute_group_member';
+
+    /**
+     * 当前用户退出群聊
+     * @var string
+     */
+    static $quitGroup = '/group/quit_group';
+
+    /**
+     * 设置群信息
+     * @var string
+     */
+    static $setGroupInfo = '/group/set_group_info';
+
+    /**
+     * 修改群成员信息
+     * @var string
+     */
+    static $setGroupMemberInfo = '/group/set_group_member_info';
+
+    /**
+     * 转让群主
+     * @var string
+     */
+    static $transferGroup = '/group/transfer_group';
+
+    /**
      * 检查列表账户注册状态，并且返回结果
      * @var string
      */
