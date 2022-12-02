@@ -40,7 +40,8 @@ class Auth
      * @param int $birth
      * @return array
      */
-    public function userRegister(string $userId, string $nickname = '', string $faceUrl = '', string $phoneNumber = '', int $gender = 1, string $email = '', string $ex = '', int $birth = 0): array
+    public function userRegister(string $userId, string $nickname = '', string $faceUrl = '', string $phoneNumber = '',
+                                 int $gender = 1, string $email = '', string $ex = '', int $birth = 0): array
     {
         $data = [
             'userID' => $userId,
