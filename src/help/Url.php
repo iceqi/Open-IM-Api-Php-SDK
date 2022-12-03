@@ -221,6 +221,167 @@ class Url
     static $transferGroup = '/group/transfer_group';
 
     /**
+     * 管理员批量发送群聊单聊消息
+     * @var string
+     */
+    static $batchSendMsg = '/msg/batch_send_msg';
+
+    /**
+     * 清空用户消息
+     * @var string
+     */
+    static $clearMsg = '/msg/clear_msg';
+
+    /**
+     * 根据seq列表删除消息
+     * @var string
+     */
+    static $delMsg = '/msg/del_msg';
+
+    /**
+     * 管理员发送/撤回消息
+     * @var string
+     */
+    static $manageSendMsg = '/msg/manage_send_msg';
+
+    /**
+     * 获取用户所有会话
+     * @var string
+     */
+    static $getAllConversations = '/msg/get_all_conversations';
+
+    /**
+     * 根据会话ID获取会话
+     * @var string
+     */
+    static $getConversation = '/msg/get_conversation';
+
+    /**
+     * 根据会话ID列表获取会话
+     * @var string
+     */
+    static $getConversations = '/msg/get_conversations';
+
+    /**
+     * 评论一条工作圈
+     * @var string
+     */
+    static $commentOneWorkMoment = '/office/comment_one_work_moment';
+    /**
+     * 创建一条工作圈
+     * @var string
+     */
+    static $createOneWorkMoment = '/office/create_one_work_moment';
+
+    /**
+     * 删除一条评论
+     * @var string
+     */
+    static $deleteComment = '/office/delete_comment';
+
+    /**
+     * 删除一条工作圈
+     * @var string
+     */
+    static $deleteOneWorkMoment = '/office/delete_one_work_moment';
+
+    /**
+     * 查询自己大工作圈页面
+     * @var string
+     */
+    static $getUserFriendWorkMoments = '/office/get_user_friend_work_moments';
+
+    /**
+     * 查询用户工作圈
+     * @var string
+     */
+    static $getUserWorkMoments = '/office/get_user_work_moments';
+
+    /**
+     * 通过ID获取工作圈
+     * @var string
+     */
+    static $getWorkMomentById = '/office/get_work_moment_by_id';
+
+    /**
+     * 点赞一条工作圈
+     * @var string
+     */
+    static $likeOneWorkMoment = '/office/like_one_work_moment';
+
+    /**
+     * 创建部门
+     * @var string
+     */
+    static $createDepartment = '/organization/create_department';
+
+    /**
+     * 创建部门用户
+     * @var string
+     */
+    static $createDepartmentMember = '/organization/create_department_member';
+
+    /**
+     * 组织架构导入用户
+     * @var string
+     */
+    static $createOrganizationUser = '/organization/create_organization_user';
+
+    /**
+     * 删除部门
+     * @var string
+     */
+    static $deleteDepartment = '/organization/delete_department';
+
+    /**
+     * 删除组织架构中某个用户
+     * @var string
+     */
+    static $deleteOrganizationUser = '/organization/delete_organization_user';
+
+    /**
+     * 删除部门中某个用户
+     * @var string
+     */
+    static $deleteUserInDepartment = '/organization/delete_user_in_department';
+
+    /**
+     * 获取部门中所有成员
+     * @var string
+     */
+    static $getDepartmentMember = '/organization/get_department_member';
+
+    /**
+     * 获取子部门列表
+     * @var string
+     */
+    static $getSubDepartment = '/organization/get_sub_department';
+
+    /**
+     * 获取部门中的所有用户
+     * @var string
+     */
+    static $getUserInDepartment = '/organization/get_user_in_department';
+
+    /**
+     * 更新部门信息
+     * @var string
+     */
+    static $updateDepartment = '/organization/update_department';
+
+    /**
+     * 更新组织架构中的用户
+     * @var string
+     */
+    static $updateOrganizationUser = '/organization/update_organization_user';
+
+    /**
+     * 更新部门中某个用户
+     * @var string
+     */
+    static $updateUserInDepartment = '/organization/update_user_in_department';
+
+    /**
      * 检查列表账户注册状态，并且返回结果
      * @var string
      */
