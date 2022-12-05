@@ -7,6 +7,7 @@ class Config
     private static $config = [
         'platform' => 1,
         'host' => 'http://127.0.0.1:10002',
+        'admin_host' => 'http://127.0.0.1:10006',
         'secret' => 'openIM123',
     ];
 
@@ -42,5 +43,13 @@ class Config
     public static function getHost(): string
     {
         return self::$config['host'];
+    }
+
+    /**
+     * @return string
+     */
+    public static function getAdminHost(): string
+    {
+        return self::$config['admin_host'];
     }
 }

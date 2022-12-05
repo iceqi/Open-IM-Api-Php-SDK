@@ -29,16 +29,18 @@ class Utils
     private static function request(string $uri, array $data, string $token): string
     {
         $client = new Client();
-        $options = [
-            RequestOptions::JSON => array_merge(Validate::validateArray($data), [
-                'operationID' => self::buildOperationID(),
-                'platform' => Config::getPlatform(),
-                'secret' => Config::getSecret(),
-            ]),
-            RequestOptions::HEADERS => [
-                'token' => $token,
-            ]
-        ];
+        $options[RequestOptions::JSON] = array_merge(Validate::validateArray($data), [
+            'operationID' => self::buildOperationID(),
+            'platform' => Config::getPlatform(),
+            'secret' => Config::getSecret(),
+        ]);
+
+        if ($token) {
+            $options[RequestOptions::HEADERS]['token'] = $token;
+        }
+
+//        dump($options);
+
         return $client->post($uri, $options)->getBody()->getContents();
     }
 
@@ -50,11 +52,13 @@ class Utils
      * @param string $token
      * @return array
      */
-    public static function send(string $path, array $data, string $errMsg, string $token = ''): array
+    public static function send(string $path, array $data, string $errMsg, string $token = '', bool $isAdmin = false): array
     {
         try {
-            return json_decode(self::request(Url::buildUrl($path), $data, $token), true);
+            $url = $isAdmin ? AdminUrl::buildUrl($path) : Url::buildUrl($path);
+            return json_decode(self::request($url, $data, $token), true);
         } catch (GuzzleException $e) {
+//            dump($e->getMessage());
             return ['errCode' => $e->getCode(), 'errMsg' => $errMsg];
         } catch (ValidateException $e) {
             return ['errCode' => 400, 'errMsg' => $e->getMessage()];
