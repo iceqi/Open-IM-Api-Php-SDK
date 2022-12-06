@@ -76,27 +76,22 @@ class User
      * 修改用户信息
      * @param string $token
      * @param string $userId
-     * @param string $nickname
-     * @param string $faceUrl
-     * @param string $phoneNumber
-     * @param int $gender
-     * @param string $email
-     * @param string $ex
-     * @param int $birth
+     * @param array $data
      * @return array
      */
-    public function updateUserInfo(string $token, string $userId, string $nickname = '', string $faceUrl = '', string $phoneNumber = '', int $gender = 1, string $email = '', string $ex = '', int $birth = 0): array
+    public function updateUserInfo(string $token, string $userId,array $data): array
     {
-        $data = [
-            'userID' => $userId,
-            'nickname' => $nickname,
-            'faceURL' => $faceUrl,
-            'gender' => $gender,
-            'birth' => $birth,
-            'phoneNumber' => $phoneNumber,
-            'email' => $email,
-            'ex' => $ex
-        ];
+//        $data = [
+//            'userID' => $userId,
+//            'nickname' => 'string',
+//            'faceURL' => 'string',
+//            'gender' => 1,
+//            'birth' => 'string',
+//            'phoneNumber' => 'string',
+//            'email' => 'string',
+//            'ex' => 'string',
+//        ];
+        $data = array_merge(['userID' => $userId],$data);
         return Utils::send(Url::$updateUserInfo, $data, '修改用户信息错误', $token);
     }
 }
